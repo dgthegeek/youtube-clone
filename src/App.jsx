@@ -1,15 +1,16 @@
 import React from 'react'
 import { BrowserRouter , Routes, Route } from 'react-router-dom'
 
-import { NavBar, SearchFeed, VideoDetail, ChannelDetail, Feed } from './components'
+import { NavBar, SearchFeed, VideoDetail, ChannelDetail, Feed } from './components/import'
 
 import { Box } from '@mui/material'
-import './App.css'
+import './index.css'
 
 
 const App = () => {
+  return (
   <BrowserRouter>
-  <Box>
+  <Box sx={{backgroundColor: '#000'}}>
     <NavBar/>
     <Routes>
       <Route path="/" exact element={ <Feed/> }/>
@@ -20,6 +21,7 @@ const App = () => {
     </Routes>
   </Box>
   </BrowserRouter>
+  )
 }
 
 export default App
