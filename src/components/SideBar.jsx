@@ -19,7 +19,7 @@ const SideBar = ({selectedCategory, setSelectedCategory}) => {
                         className='category-btn'
                         style={{
                             borderRadius: 20,
-                            background: cat.name === selectedCategory ? 'red' : 'withe',
+                            background: cat.name === selectedCategory ? 'red' : 'black',
                             color: 'white',
                             marginTop: '5px'
                         }}

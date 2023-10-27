@@ -8,21 +8,23 @@ import { useState } from "react";
 
 
 const Feed = () => {
-
     const [selectedCategory, setSelectedCategory] = useState('New')
-    
+    const [videos, setvideos] = useState([])
+
     useEffect(
         () => {
             FetchData(`search?part=snippet&q=${selectedCategory}`)
+            .then((data) => setvideos(data))
         }, [selectedCategory]
     )
     return (
-        <Stack sx={{ flexDirection: { sx: 'column', md: 'row', overflowY: 'auto', marginTop: '20px' } }}>
+        <Stack sx={{ flexDirection: { sx: 'column', md: 'row', overflowY: 'auto', marginTop: '0px' } }}>
             <Box
                 sx={{
                     height: { sx: 'auto', md: '92vh' },
                     borderRight: '1px solid red',
-                    px: { sx: 0, md: 2 }
+                    px: { sx: 0, md: 2 },
+                    marginTop: '20px'
                 }}
             >
                 <SideBar
@@ -30,7 +32,6 @@ const Feed = () => {
                 setSelectedCategory= {setSelectedCategory}
 
                 />
-                <p>Copyrights dgthegeek 2023</p>
             </Box>
             <Box
                 sx={{
@@ -38,10 +39,11 @@ const Feed = () => {
                     msOverflowY: 'auto',
                     marginTop: '20px',
                     height: { sx: 'auto', md: '92vh' },
-                    flex: 2
+                    flex: 2,
+                    marginTop: '40px'
                 }}>
-                <h1 style={{ color: '#fff', marginBottom: 2 }}>Category Videos</h1>
-                <Videos videos={[]} />
+                <h1 style={{ color: '#fff', marginBottom: 2 }}>{selectedCategory} Videos</h1>
+                <Videos videos={videos} />
             </Box>
         </Stack>
     )
