@@ -21,6 +21,7 @@ const Feed = () => {
         <Stack sx={{ flexDirection: 'column', marginTop: '0px', overflowY: 'scroll'}}>
             <Box
                 sx={{
+                    overflowY: 'auto',
                     flexDirection :'row',
                     overflowX: 'auto',
                     borderBottom: '1px solid red',
