@@ -22,19 +22,19 @@ const SideBar = ({selectedCategory, setSelectedCategory}) => {
                             borderRadius: 20,
                             background: cat.name === selectedCategory ? 'red' : 'black',
                             color: 'white',
-                            marginLeft: '25px'
+                            marginLeft: '20px'
                         }}
                     >
                         <span
                             style={{
-                                opacity: cat.name === selectedCategory ? 1 : 0.7, marginRight: '10px'
+                                opacity: cat.name === selectedCategory ? 1 : 0.7, marginLeft: '10px'
                             }}
                         >
                             {cat.name}
                         </span>
                         <span
                             style={{
-                                color: cat.name === selectedCategory ? 'withe' : 'red',
+                                color: cat.name === selectedCategory ? 'withe' : 'red', marginLeft: '10px'
                             }}
                         >
                             {cat.icon}

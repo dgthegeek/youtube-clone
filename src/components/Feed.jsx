@@ -18,13 +18,14 @@ const Feed = () => {
         }, [selectedCategory]
     )
     return (
-        <Stack sx={{ flexDirection: 'column', marginTop: '0px'}}>
+        <Stack sx={{ flexDirection: 'column', marginTop: '0px', overflowY: 'scroll'}}>
             <Box
                 sx={{
                     flexDirection :'row',
                     overflowX: 'auto',
                     borderBottom: '1px solid red',
-                    marginTop: '10px'
+                    marginTop: '10px',
+                    position: 'sticky'
                 }}
             >
                 <SideBar
@@ -38,7 +39,8 @@ const Feed = () => {
                     ml: '40px',
                     msOverflowY: 'auto',
                     height: { sx: 'auto', md: '92vh' },
-                    marginTop: '5px'
+                    marginTop: '5px',
+                    overflowY: 'scroll'
                 }}>
                 <h1 style={{ color: '#fff', marginBottom: 2 }}>{selectedCategory} Videos</h1>
                 <Videos videos={videos} />
