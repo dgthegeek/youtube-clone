@@ -34,7 +34,7 @@ const SideBar = ({selectedCategory, setSelectedCategory}) => {
                         </span>
                         <span
                             style={{
-                                color: cat.name === selectedCategory ? 'withe' : 'red', marginLeft: '10px'
+                                color: 'withe'
                             }}
                         >
                             {cat.icon}
