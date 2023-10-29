@@ -8,17 +8,20 @@ import { FetchData } from "../utils/API";
 
 const ChannelDetail = () => {
   const [channelDetail, setChannelDetail] = useState();
-  const [videos, setVideos] = useState(null);
+  const [videos, setVideos] = useState([]);
 
   const { id } = useParams();
 
   useEffect(() => {
     const fetchResults = async () => {
-      const data = await FetchData(`channels?part=snippet&id=${id}`);
+      FetchData(`channels?part=snippet&id=${id}`)
+      .then(data => {
+          setChannelDetail(data?.items);
+      })
+      console.log(id);
 
-      setChannelDetail(data?.items[0]);
 
-      const videosData = await FetchData(`search?channelId=${id}&part=snippet%2Cid&order=date`);
+      const videosData = await FetchData(`search?channelId=${id}&part=snippet&order=date`);
 
       setVideos(videosData?.items);
     };
@@ -26,12 +29,14 @@ const ChannelDetail = () => {
     fetchResults();
   }, [id]);
 
+  console.log(channelDetail);
+
   return (
     <Box minHeight="95vh">
       <Box>
         <div style={{
           height:'300px',
-          background: 'linear-gradient(90deg, rgba(0,238,247,1) 0%, rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)',
+          background: 'grey',
           zIndex: 10,
         }} />
         <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
