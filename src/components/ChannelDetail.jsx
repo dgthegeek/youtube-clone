@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import Videos  from "./VideoCard";
+import Videos from "./VideoCard";
 import ChannelCard from "./ChannelCard";
 import { FetchData } from "../utils/API";
 
@@ -13,20 +13,15 @@ const ChannelDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchResults = async () => {
-      FetchData(`channels?part=snippet&id=${id}`)
+    FetchData(`channels?part=snippet&id=${id}`)
       .then(data => {
-          setChannelDetail(data?.items);
+        setChannelDetail(data?.items)
+      })
+    FetchData(`search?channelId=${id}&part=snippet&order=date`)
+      .then(data => {
+        setVideos(data?.items)
       })
       console.log(id);
-
-
-      const videosData = await FetchData(`search?channelId=${id}&part=snippet&order=date`);
-
-      setVideos(videosData?.items);
-    };
-
-    fetchResults();
   }, [id]);
 
   console.log(channelDetail);
@@ -35,14 +30,14 @@ const ChannelDetail = () => {
     <Box minHeight="95vh">
       <Box>
         <div style={{
-          height:'300px',
+          height: '300px',
           background: 'grey',
           zIndex: 10,
         }} />
         <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
       </Box>
       <Box p={2} display="flex">
-      <Box sx={{ mr: { sm: '100px' } }}/>
+        <Box sx={{ mr: { sm: '100px' } }} />
         <Videos videos={videos} />
       </Box>
     </Box>
