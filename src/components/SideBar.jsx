@@ -10,7 +10,9 @@ const SideBar = ({selectedCategory, setSelectedCategory}) => {
                 overflowX: 'auto',
                 pt: 0,
                 width: '2000px',
-                height: '50px'
+                height: '50px',
+                position: 'sticky'
+        
             }}
         >
             {categories.map(
