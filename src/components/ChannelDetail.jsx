@@ -15,16 +15,15 @@ const ChannelDetail = () => {
   useEffect(() => {
     FetchData(`channels?part=snippet&id=${id}`)
       .then(data => {
-        setChannelDetail(data?.items)
+        setChannelDetail(data)
       })
     FetchData(`search?channelId=${id}&part=snippet&order=date`)
       .then(data => {
-        setVideos(data?.items)
+        setVideos(data)
       })
-      console.log(id);
   }, [id]);
 
-  console.log(channelDetail);
+  console.log(videos);
 
   return (
     <Box minHeight="95vh">
