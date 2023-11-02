@@ -28,19 +28,19 @@ const VideoDetail = () => {
       <Stack direction='column' justifyContent= 'center'>
         <Stack
           sx={{
-            width: "80%",
+            width: "100%",
             top: "86px",
-            position: "scroll",
             mt: '30px',
             mb: '50px'
             
           }}
-          direction={{ xs: "coljustifyContent= 'center'umn", md: "row" }}
-          justifyContent='space-around'
+          direction='column'
+          justifyContent='center'
           gap={3}
         >
-          <Box paddingLeft={{md:'100px'}} >
+          <Box sx={{}} >
             <ReactPlayer
+            width='100%'
               url={`https://www.youtube.com/watch?v=${id}`}
               controls
             />
