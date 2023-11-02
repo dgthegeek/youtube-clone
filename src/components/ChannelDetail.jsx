@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import Videos from "./VideoCard";
+import Videos from "./Videos";
 import ChannelCard from "./ChannelCard";
 import { FetchData } from "../utils/API";
 
@@ -15,15 +15,13 @@ const ChannelDetail = () => {
   useEffect(() => {
     FetchData(`channels?part=snippet&id=${id}`)
       .then(data => {
-        setChannelDetail(data)
+        setChannelDetail(data[0])
       })
     FetchData(`search?channelId=${id}&part=snippet&order=date`)
       .then(data => {
         setVideos(data)
       })
-  }, [id]);
-
-  console.log(videos);
+    }, [id]);
 
   return (
     <Box minHeight="95vh">

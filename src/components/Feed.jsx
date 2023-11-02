@@ -24,7 +24,7 @@ const Feed = () => {
                     overflowY: 'auto',
                     flexDirection :'row',
                     overflowX: 'auto',
-                    borderBottom: '1px solid red',
+                    borderBottom: '0.5px solid red',
                     marginTop: '10px',
                     position: 'sticky'
                 }}
@@ -37,13 +37,12 @@ const Feed = () => {
             </Box>
             <Box
                 sx={{
-                    ml: '40px',
                     msOverflowY: 'auto',
                     height: { sx: 'auto', md: '92vh' },
                     marginTop: '5px',
                     overflowY: 'scroll'
                 }}>
-                <h1 style={{ color: '#fff', marginBottom: 2 }}>{selectedCategory} Videos</h1>
+                <h1 style={{ color: '#fff', marginBottom: 2 }}> <span style={{color: 'red'}}>{selectedCategory}</span> Videos</h1>
                 <Videos videos={videos} />
             </Box>
         </Stack>
