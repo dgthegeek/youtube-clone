@@ -63,6 +63,8 @@ To run this project on your local machine, follow these steps:
    ```bash
    npm install
    ```
+   
+   Or you can simply visite the website here : [https://regal-boba-b32ea5.netlify.app/]
 
 ## Usage
 
@@ -73,6 +75,8 @@ npm start
 ```
 
 The YouTube clone will be accessible at [http://localhost:3000](http://localhost:3000).
+
+Or you can simply visite the website here : [https://regal-boba-b32ea5.netlify.app/]
 
 Feel free to explore the various functionalities, including video filtering, searching, and channel navigation. The project is designed to provide an authentic YouTube experience.
 
